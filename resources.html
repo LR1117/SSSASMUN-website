@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Model UN Club</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Model</span>
+                <span class="logo-accent">UN</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link" data-section="home">Home</a></li>
+                <li><a href="about-club.html" class="nav-link" data-section="about-club">About the Club</a></li>
+                <li><a href="members.html" class="nav-link" data-section="members">Club Members</a></li>
+                <li><a href="resources.html" class="nav-link active" data-section="resources">Resources</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="header-content">
+                <h1>Club Resources</h1>
+                <p>Everything you need to succeed in Model UN</p>
+            </div>
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="section quicklinks-section">
+            <div class="section-header">
+                <h2>Quick Start Guides</h2>
+                <p>Essential resources for new and experienced members</p>
+            </div>
+            <div class="quicklinks-grid">
+                <a href="#" class="quicklink-card">
+                    <div class="quicklink-icon">📖</div>
+                    <h3>Beginner's Guide to Model UN</h3>
+                    <p>Learn the basics: what is Model UN, how committees work, and what to expect at your first conference.</p>
+                </a>
+                <a href="#" class="quicklink-card">
+                    <div class="quicklink-icon">📝</div>
+                    <h3>Position Paper Template</h3>
+                    <p>Download our template and learn how to write an effective position paper for your assigned country.</p>
+                </a>
+                <a href="#" class="quicklink-card">
+                    <div class="quicklink-icon">🎤</div>
+                    <h3>Public Speaking Tips</h3>
+                    <p>Improve your delivery, manage nerves, and make compelling arguments during debates.</p>
+                </a>
+                <a href="#" class="quicklink-card">
+                    <div class="quicklink-icon">📋</div>
+                    <h3>Parliamentary Procedure</h3>
+                    <p>Master the rules: motions, amendments, quorum, and how to navigate committee proceedings.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Training Materials Section -->
+        <section class="section training-section">
+            <div class="section-header">
+                <h2>Training Materials</h2>
+                <p>Comprehensive guides to improve your skills</p>
+            </div>
+            <div class="training-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab(event, 'research')">Research</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'writing')">Writing</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'debate')">Debate</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'strategy')">Strategy</button>
+                </div>
+                
+                <div id="research" class="tab-content active">
+                    <h3>Research Guide</h3>
+                    <div class="resource-item">
+                        <h4>Primary Research Sources</h4>
+                        <ul>
+                            <li><strong>UN Official Website:</strong> www.un.org - Official resolutions, data, and publications</li>
+                            <li><strong>CIA World Factbook:</strong> Detailed information about countries and regions</li>
+                            <li><strong>Council on Foreign Relations:</strong> Analysis of international issues</li>
+                            <li><strong>United Nations Documents:</strong> Access to all official UN proceedings</li>
+                        </ul>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Research Strategy</h4>
+                        <ol>
+                            <li>Understand your committee's agenda topics</li>
+                            <li>Research your assigned country's position on each topic</li>
+                            <li>Find current events and historical context</li>
+                            <li>Identify potential alliances with other countries</li>
+                            <li>Develop your country's speaking points and solutions</li>
+                        </ol>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Key Documents to Prepare</h4>
+                        <ul>
+                            <li>Position Paper (required for most conferences)</li>
+                            <li>Country Profile and Foreign Policy Overview</li>
+                            <li>Voting Record on Similar Issues</li>
+                            <li>Speaking Notes and Key Arguments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="writing" class="tab-content">
+                    <h3>Writing Guide</h3>
+                    <div class="resource-item">
+                        <h4>Position Paper Structure</h4>
+                        <ol>
+                            <li><strong>Header:</strong> Country name, committee, topic</li>
+                            <li><strong>Introduction:</strong> Hook and overview of position</li>
+                            <li><strong>Background:</strong> Historical context and current situation</li>
+                            <li><strong>Country Position:</strong> Detailed stance on the issue</li>
+                            <li><strong>Solutions:</strong> Proposed actions and policies</li>
+                            <li><strong>Conclusion:</strong> Summary and call to action</li>
+                        </ol>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Writing Tips</h4>
+                        <ul>
+                            <li>Use professional and diplomatic language</li>
+                            <li>Support arguments with credible sources and statistics</li>
+                            <li>Maintain your country's perspective throughout</li>
+                            <li>Use active voice and clear, concise sentences</li>
+                            <li>Proofread multiple times for grammar and spelling</li>
+                            <li>Keep paragraphs focused on single ideas</li>
+                        </ul>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Resolution Format</h4>
+                        <p>Learn the proper formatting for UN resolutions including preamble clauses, operative clauses, and sponsor/co-sponsor requirements.</p>
+                    </div>
+                </div>
+
+                <div id="debate" class="tab-content">
+                    <h3>Debate & Speaking Guide</h3>
+                    <div class="resource-item">
+                        <h4>Speaking Effectively in Committee</h4>
+                        <ul>
+                            <li>Maintain eye contact with the chair and other delegates</li>
+                            <li>Speak clearly and at a moderate pace</li>
+                            <li>Use hand gestures to emphasize key points</li>
+                            <li>Begin with formal address: "The delegation of [Country]..."</li>
+                            <li>Reference other delegates' points to engage in debate</li>
+                            <li>Stay calm and diplomatic, even in disagreement</li>
+                        </ul>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Debate Strategies</h4>
+                        <ul>
+                            <li><strong>Build Consensus:</strong> Form alliances with like-minded nations</li>
+                            <li><strong>Counter Arguments:</strong> Anticipate opposing views and prepare rebuttals</li>
+                            <li><strong>Use Evidence:</strong> Back up claims with facts and statistics</li>
+                            <li><strong>Listen Actively:</strong> Pay attention to other delegates' positions</li>
+                            <li><strong>Stay in Character:</strong> Always speak from your country's perspective</li>
+                            <li><strong>Be Flexible:</strong> Adjust strategy based on committee dynamics</li>
+                        </ul>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Common Speaking Phrases</h4>
+                        <ul>
+                            <li>"We respectfully disagree..."</li>
+                            <li>"In light of this evidence..."</li>
+                            <li>"The delegation wishes to yield the floor to..."</li>
+                            <li>"We propose an alternative approach..."</li>
+                            <li>"Building on the previous speaker's point..."</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="strategy" class="tab-content">
+                    <h3>Conference Strategy</h3>
+                    <div class="resource-item">
+                        <h4>Pre-Conference Preparation</h4>
+                        <ul>
+                            <li>Review all committee topics and background guides</li>
+                            <li>Complete thorough country research</li>
+                            <li>Write position papers 2+ weeks before conference</li>
+                            <li>Practice speeches and debate responses</li>
+                            <li>Connect with other delegates from your school</li>
+                            <li>Pack all necessary documents and materials</li>
+                        </ul>
+                    </div>
+                    <div class="resource-item">
+                        <h4>During Conference</h4>
+                        <ul>
+                            <li>Attend all sessions and committee meetings</li>
+                            <li>Take detailed notes on other countries' positions</li>
+                            <li>Network with delegates from other schools</li>
+                            <li>Negotiate and form strategic alliances</li>
+                            <li>Be ready to modify positions based on new information</li>
+                            <li>Participate actively in resolution writing</li>
+                        </ul>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Winning Awards</h4>
+                        <ul>
+                            <li><strong>Best Delegate:</strong> Active participation, strong research, persuasive speaking</li>
+                            <li><strong>Outstanding Delegation:</strong> Teamwork, cooperation, overall performance</li>
+                            <li><strong>Best Position Paper:</strong> Depth of research, clear writing, original ideas</li>
+                            <li><strong>Honorable Mention:</strong> Consistent quality throughout conference</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- External Resources Section -->
+        <section class="section external-resources-section">
+            <div class="section-header">
+                <h2>External Resources</h2>
+                <p>Valuable websites and organizations for Model UN preparation</p>
+            </div>
+            <div class="resources-list">
+                <div class="resource-category">
+                    <h3>🌐 Research Websites</h3>
+                    <div class="resource-links">
+                        <a href="https://www.un.org" target="_blank" class="resource-link">
+                            <strong>United Nations Official Site</strong>
+                            <p>The official UN website with resolutions, documents, and information</p>
+                        </a>
+                        <a href="https://www.cia.gov/the-world-factbook/" target="_blank" class="resource-link">
+                            <strong>CIA World Factbook</strong>
+                            <p>Comprehensive country profiles and statistical data</p>
+                        </a>
+                        <a href="https://www.cfr.org" target="_blank" class="resource-link">
+                            <strong>Council on Foreign Relations</strong>
+                            <p>In-depth analysis of international issues and foreign policy</p>
+                        </a>
+                        <a href="https://www.bbc.com/news" target="_blank" class="resource-link">
+                            <strong>BBC News</strong>
+                            <p>International news coverage and current events</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-category">
+                    <h3>🎯 Model UN Organizations</h3>
+                    <div class="resource-links">
+                        <a href="#" class="resource-link">
+                            <strong>National Model UN Association</strong>
+                            <p>Official organization overseeing Model UN competitions</p>
+                        </a>
+                        <a href="#" class="resource-link">
+                            <strong>Best Delegate</strong>
+                            <p>Model UN curriculum and training programs</p>
+                        </a>
+                        <a href="#" class="resource-link">
+                            <strong>Model UN Conferences Calendar</strong>
+                            <p>List of upcoming conferences across the country</p>
+                        </a>
+                        <a href="#" class="resource-link">
+                            <strong>Model UN Forums</strong>
+                            <p>Community discussions and advice from experienced delegates</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-category">
+                    <h3>📚 Learning Materials</h3>
+                    <div class="resource-links">
+                        <a href="#" class="resource-link">
+                            <strong>UN System Overview</strong>
+                            <p>Guide to the structure and function of the United Nations</p>
+                        </a>
+                        <a href="#" class="resource-link">
+                            <strong>Rules of Procedure</strong>
+                            <p>Parliamentary procedures and rules for Model UN conferences</p>
+                        </a>
+                        <a href="#" class="resource-link">
+                            <strong>Diplomacy 101</strong>
+                            <p>Introduction to diplomatic communication and negotiation</p>
+                        </a>
+                        <a href="#" class="resource-link">
+                            <strong>Global Issues Primer</strong>
+                            <p>Overview of major contemporary international issues</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section class="section documents-section">
+            <div class="section-header">
+                <h2>Club Documents</h2>
+                <p>Templates and official club materials</p>
+            </div>
+            <div class="documents-grid">
+                <div class="document-item">
+                    <div class="document-icon">📄</div>
+                    <h4>Position Paper Template</h4>
+                    <p>Use this template to format your position papers correctly</p>
+                    <button class="download-btn">Download</button>
+                </div>
+                <div class="document-item">
+                    <div class="document-icon">📋</div>
+                    <h4>Resolution Template</h4>
+                    <p>Proper formatting for writing UN resolutions</p>
+                    <button class="download-btn">Download</button>
+                </div>
+                <div class="document-item">
+                    <div class="document-icon">📊</div>
+                    <h4>Country Research Sheet</h4>
+                    <p>Organize your country research with this worksheet</p>
+                    <button class="download-btn">Download</button>
+                </div>
+                <div class="document-item">
+                    <div class="document-icon">📖</div>
+                    <h4>Conference Checklist</h4>
+                    <p>Don't forget anything! Use this packing and prep checklist</p>
+                    <button class="download-btn">Download</button>
+                </div>
+                <div class="document-item">
+                    <div class="document-icon">🗂️</div>
+                    <h4>Committee Background Guide</h4>
+                    <p>Understanding committee topics and structure</p>
+                    <button class="download-btn">Download</button>
+                </div>
+                <div class="document-item">
+                    <div class="document-icon">📝</div>
+                    <h4>Speaking Notes Template</h4>
+                    <p>Organize your talking points and arguments</p>
+                    <button class="download-btn">Download</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Tutorials Section -->
+        <section class="section videos-section">
+            <div class="section-header">
+                <h2>Video Tutorials</h2>
+                <p>Learn from experienced Model UN veterans</p>
+            </div>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-placeholder">▶️</div>
+                    <h4>How to Write a Position Paper</h4>
+                    <p>Step-by-step guide to crafting an effective position paper</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">▶️</div>
+                    <h4>Parliamentary Procedure Explained</h4>
+                    <p>Understanding motions, amendments, and committee rules</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">▶️</div>
+                    <h4>Delegate Speech Tips</h4>
+                    <p>Techniques for powerful and persuasive public speaking</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">▶️</div>
+                    <h4>First Time at Conference</h4>
+                    <p>What to expect at your first Model UN conference</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section faq-section">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers to common Model UN questions</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h4>Do I need prior debate experience?</h4>
+                    <p>No! Model UN welcomes members of all experience levels. We provide training and support for beginners.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How much does it cost to join?</h4>
+                    <p>Club membership is free. Conference fees ($50-150) are optional and cover transportation and registration.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How much time does Model UN take?</h4>
+                    <p>Weekly meetings are 1-2 hours. Conference preparation varies, but expect 2-3 hours weekly before conferences.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if I've never done public speaking?</h4>
+                    <p>Model UN is a great way to build confidence! We teach speaking skills through training and practice sessions.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I join mid-year?</h4>
+                    <p>Absolutely! We welcome new members at any time during the school year.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How are delegates assigned to countries?</h4>
+                    <p>Country assignments are made by our Conference Director based on member preferences and availability.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section class="section events-section">
+            <div class="section-header">
+                <h2>Upcoming Conferences</h2>
+                <p>Where we'll be competing next</p>
+            </div>
+            <div class="events-list">
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="month">March</span>
+                        <span class="day">15-17</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>Spring Valley High School Model UN Conference</h4>
+                        <p><strong>Location:</strong> Spring Valley High School</p>
+                        <p><strong>Committees:</strong> General Assembly, Security Council, ECOSOC</p>
+                        <p><strong>Registration:</strong> Now Open</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="month">April</span>
+                        <span class="day">12-14</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>State Model UN Conference</h4>
+                        <p><strong>Location:</strong> Convention Center Downtown</p>
+                        <p><strong>Committees:</strong> Multiple including specialized committees</p>
+                        <p><strong>Registration:</strong> March 1st Deadline</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="month">May</span>
+                        <span class="day">10-12</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>Northeast Regional Conference</h4>
+                        <p><strong>Location:</strong> University Campus</p>
+                        <p><strong>Committees:</strong> All major UN committees available</p>
+                        <p><strong>Registration:</strong> Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Model UN Club. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about-club.html">About</a>
+                <a href="members.html">Members</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Tab switching functionality
+        function switchTab(event, tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab and highlight button
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
