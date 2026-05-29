@@ -92,15 +92,49 @@ contactForm.addEventListener('submit', function(e) {
         return;
     }
 
-    // Show success message
-    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+    // --- NEW: Change button text to show it's loading ---
+    const submitButton = this.querySelector('.cta-button');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = "Sending...";
+    submitButton.disabled = true;
 
-    // Reset form
-    this.reset();
-    this.querySelector('input[type="text"]').focus();
+    // --- NEW: Convert FormData into JSON for Web3Forms ---
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-    // Here you would typically send the form data to a server
-    console.log('Form submitted:', { name, email, message });
+    // --- NEW: Send the actual data to the server ---
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: json
+    })
+    .then(async (response) => {
+        let resJson = await response.json();
+        if (response.status == 200) {
+            // Show your real success notification!
+            showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+            
+            // Reset form
+            this.reset();
+            const firstInput = this.querySelector('input[type="text"]');
+            if (firstInput) firstInput.focus();
+        } else {
+            // Server error (e.g. invalid API key)
+            showNotification('Oops! ' + resJson.message, 'error');
+        }
+    })
+    .catch(error => {
+        // Network error
+        showNotification('Something went wrong. Please check your connection.', 'error');
+    })
+    .then(() => {
+        // Always reset the button back to its original state
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+    });
 });
 
 // ===== Notification System =====
