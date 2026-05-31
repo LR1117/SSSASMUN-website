@@ -133,26 +133,39 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
-            <div class="contact-wrapper">
-                <div class="contact-intro">
-                    <h2>Convinced Yet?</h2>
-                    <p>We meet Thursdays at 3:30 PM in Room 215. No experience required. Weird sense of humor required.</p>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your name (preferably one you'd use as a diplomat)" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Why Model UN? (Honest answers only)" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button">Count me in</button>
-                </form>
-            </div>
-        </section>
+        <section id="contact" class="section contact-section"> 
+            <div class="section-header"> 
+              <h2>Join Our Club Today</h2> 
+              <p>Get in touch and become part of our Model UN delegation</p> 
+            </div> 
+            
+            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST"> 
+              <!-- Web3Forms Access Key -->
+              <input type="hidden" name="access_key" value="5b0e07a8-ad11-49f1-944d-abac308a401e"> 
+          
+              <!-- Name Field -->
+              <div class="form-group"> 
+                <input type="text" placeholder="Your Name" name="name" required> 
+              </div> 
+          
+              <!-- Email Field -->
+              <div class="form-group"> 
+                <input type="email" id="email" placeholder="Your Email Address" name="email" required> 
+              </div> 
+          
+              <!-- Subject Field (Added this back for you) -->
+              <div class="form-group"> 
+                <input type="hidden" name="subject" value="New Model UN Club Submission">
+              </div>
+          
+              <!-- Message Field (Cleaned up the duplicate) -->
+              <div class="form-group"> 
+                <textarea placeholder="Tell us about your interest in Model UN. Please tell us your grade, Model Un experience and anything thing else you want us to know!" rows="5" name="message" required></textarea> 
+              </div> 
+          
+              <button type="submit" class="cta-button">Contact Us</button> 
+            </form> 
+          </section>
     </main>
 
     <!-- Footer -->
