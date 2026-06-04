@@ -92,49 +92,15 @@ contactForm.addEventListener('submit', function(e) {
         return;
     }
 
-    // --- NEW: Change button text to show it's loading ---
-    const submitButton = this.querySelector('.cta-button');
-    const originalButtonText = submitButton.textContent;
-    submitButton.textContent = "Sending...";
-    submitButton.disabled = true;
+    // Show success message
+    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
 
-    // --- NEW: Convert FormData into JSON for Web3Forms ---
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+    // Reset form
+    this.reset();
+    this.querySelector('input[type="text"]').focus();
 
-    // --- NEW: Send the actual data to the server ---
-    fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: json
-    })
-    .then(async (response) => {
-        let resJson = await response.json();
-        if (response.status == 200) {
-            // Show your real success notification!
-            showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-            
-            // Reset form
-            this.reset();
-            const firstInput = this.querySelector('input[type="text"]');
-            if (firstInput) firstInput.focus();
-        } else {
-            // Server error (e.g. invalid API key)
-            showNotification('Oops! ' + resJson.message, 'error');
-        }
-    })
-    .catch(error => {
-        // Network error
-        showNotification('Something went wrong. Please check your connection.', 'error');
-    })
-    .then(() => {
-        // Always reset the button back to its original state
-        submitButton.textContent = originalButtonText;
-        submitButton.disabled = false;
-    });
+    // Here you would typically send the form data to a server
+    console.log('Form submitted:', { name, email, message });
 });
 
 // ===== Notification System =====
@@ -351,8 +317,93 @@ if ('IntersectionObserver' in window) {
 }
 
 // ===== Detect Reduce Motion Preference =====
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion = window.matchMedia('(prefers-reduce-motion: reduce)').matches;
 if (prefersReducedMotion) {
     document.documentElement.style.scrollBehavior = 'auto';
     console.log('Reduced motion preference detected');
+}
+
+// ===== INTERACTIVE HERO BLOBS =====
+const heroBlobs = document.querySelectorAll('.hero-blob');
+const heroSection = document.querySelector('.hero-section');
+
+if (heroBlobs.length > 0 && heroSection) {
+    // Store blob data
+    const blobData = Array.from(heroBlobs).map(blob => ({
+        element: blob,
+        x: blob.offsetLeft + blob.offsetWidth / 2,
+        y: blob.offsetTop + blob.offsetHeight / 2,
+        originalX: blob.offsetLeft + blob.offsetWidth / 2,
+        originalY: blob.offsetTop + blob.offsetHeight / 2,
+        vx: 0,
+        vy: 0
+    }));
+
+    // Track mouse position
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    // Animation loop for blob interaction
+    function animateBlobs() {
+        blobData.forEach(blob => {
+            // Get blob's position relative to viewport
+            const rect = blob.element.getBoundingClientRect();
+            const blobX = rect.left + rect.width / 2;
+            const blobY = rect.top + rect.height / 2;
+
+            // Calculate distance to mouse
+            const dx = mouseX - blobX;
+            const dy = mouseY - blobY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            // Repel radius (how close mouse needs to be)
+            const repelRadius = 150;
+            const maxForce = 80;
+
+            if (distance < repelRadius) {
+                // Calculate repel force
+                const force = (repelRadius - distance) / repelRadius;
+                const angle = Math.atan2(dy, dx);
+                
+                // Push blob away from mouse
+                blob.vx = -Math.cos(angle) * force * maxForce;
+                blob.vy = -Math.sin(angle) * force * maxForce;
+            } else {
+                // No force, return to original position
+                blob.vx = (blob.originalX - blob.x) * 0.1;
+                blob.vy = (blob.originalY - blob.y) * 0.1;
+            }
+
+            // Apply velocity
+            blob.x += blob.vx;
+            blob.y += blob.vy;
+
+            // Apply damping (friction)
+            blob.vx *= 0.92;
+            blob.vy *= 0.92;
+
+            // Apply position to element
+            const offsetX = blob.x - blob.originalX;
+            const offsetY = blob.y - blob.originalY;
+            blob.element.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        });
+
+        requestAnimationFrame(animateBlobs);
+    }
+
+    // Only animate when hero section is in view
+    const blobObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateBlobs();
+            }
+        });
+    });
+
+    blobObserver.observe(heroSection);
 }

@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Floating Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
     <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -33,16 +38,20 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="section hero-section">
+            <!-- Interactive Blobs -->
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+            <div class="hero-blob hero-blob-3"></div>
+            
             <div class="hero-grid">
                 <div class="hero-content">
-                    <h1 class="hero-title">We debate global issues for fun.</h1>
-                    <p class="hero-subtitle">Seriously. While most clubs hand out flyers, we're negotiating peace agreements (badly). Join a crew of future diplomats, current chaos agents, and everyone in between.</p>
-                    <button class="cta-button" onclick="scrollToSection('features')">See what we do</button>
-                </div>
-                <div class="hero-visual">
-                    <div class="accent-box accent-1"></div>
-                    <div class="accent-box accent-2"></div>
-                    <div class="accent-dot"></div>
+                    <h1 class="hero-title-large">
+                        <span class="hero-word saints-word">Saints</span>
+                        <span class="hero-word model-word">Model</span>
+                        <span class="hero-word un-word">UN</span>
+                    </h1>
+                    <p class="hero-subtitle">Where diplomacy meets ambition</p>
+                    <button class="cta-button" onclick="scrollToSection('features')">Learn More</button>
                 </div>
             </div>
         </section>
@@ -55,16 +64,16 @@
             </div>
             <div class="features-asymmetry">
                 <div class="feature-card feature-tall">
-                    <div class="feature-icon">🗣️</div>
+                    <!-- <div class="feature-icon">🗣️</div> -->
                     <h3>You'll Actually Learn to Speak</h3>
                     <p>Not the canned Toastmasters way. The "convince 50 people you're right about Syrian policy" way. Your confidence won't just improve—it'll be annoyingly noticeable.</p>
                 </div>
-                <div class="feature-card feature-short">
+                <div class="feature-card ">
                     <div class="feature-icon">🌍</div>
                     <h3>Global IQ</h3>
                     <p>You'll understand world news. Your parents will be confused.</p>
                 </div>
-                <div class="feature-card feature-short">
+                <div class="feature-card ">
                     <div class="feature-icon">🤝</div>
                     <h3>Real Friendships</h3>
                     <p>Not the "group project" kind. The "stayed up till 2am writing position papers together" kind.</p>
@@ -133,39 +142,26 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section contact-section"> 
-            <div class="section-header"> 
-              <h2>Join Our Club Today</h2> 
-              <p>Get in touch and become part of our Model UN delegation</p> 
-            </div> 
-            
-            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST"> 
-              <!-- Web3Forms Access Key -->
-              <input type="hidden" name="access_key" value="5b0e07a8-ad11-49f1-944d-abac308a401e"> 
-          
-              <!-- Name Field -->
-              <div class="form-group"> 
-                <input type="text" placeholder="Your Name" name="name" required> 
-              </div> 
-          
-              <!-- Email Field -->
-              <div class="form-group"> 
-                <input type="email" id="email" placeholder="Your Email Address" name="email" required> 
-              </div> 
-          
-              <!-- Subject Field (Added this back for you) -->
-              <div class="form-group"> 
-                <input type="hidden" name="subject" value="New Model UN Club Submission">
-              </div>
-          
-              <!-- Message Field (Cleaned up the duplicate) -->
-              <div class="form-group"> 
-                <textarea placeholder="Tell us about your interest in Model UN. Please tell us your grade, Model Un experience and anything thing else you want us to know!" rows="5" name="message" required></textarea> 
-              </div> 
-          
-              <button type="submit" class="cta-button">Contact Us</button> 
-            </form> 
-          </section>
+        <section id="contact" class="section contact-section">
+            <div class="contact-wrapper">
+                <div class="contact-intro">
+                    <h2>Convinced Yet?</h2>
+                    <p>We meet Thursdays at 3:30 PM in Room 215. No experience required. Weird sense of humor required.</p>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your name (preferably one you'd use as a diplomat)" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Why Model UN? (Honest answers only)" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Count me in</button>
+                </form>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
