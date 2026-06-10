@@ -21,6 +21,17 @@ navLinkElements.forEach(link => {
     });
 });
 
+
+window.addEventListener('load', () => 
+    {
+    // const targetSection = document.getElementById('home');
+    // if (targetSection) {
+    //     targetSection.scrollIntoView({ behavior: 'smooth' });
+    // }
+    window.scrollTo(0,0);
+    }
+)
+
 // ===== Smooth Scrolling & Active Link Update =====
 window.addEventListener('scroll', () => {
     // Add shadow to navbar on scroll
@@ -70,38 +81,74 @@ function scrollToSection(sectionId) {
 }
 
 // ===== Contact Form Handling =====
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+if (contactForm) {  //TODO:FIX FORM SO IT SENDS AN EMAIL
 
-    // Get form values
-    const formData = new FormData(this);
-    const name = this.querySelector('input[type="text"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const message = this.querySelector('textarea').value;
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-    // Validate form (basic validation)
-    if (!name || !email || !message) {
-        showNotification('Please fill in all fields', 'error');
-        return;
-    }
+        // Get form values
+        const nameInput = this.querySelector('input[type="text"]');
+        const emailInput = this.querySelector('input[type="email"]');
+        const messageInput = this.querySelector('textarea');
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showNotification('Please enter a valid email', 'error');
-        return;
-    }
+        if (!nameInput || !emailInput || !messageInput) {
+            console.error('Form fields not found');
+            return;
+        }
 
-    // Show success message
-    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const message = messageInput.value;
 
-    // Reset form
-    this.reset();
-    this.querySelector('input[type="text"]').focus();
+        // Validate form (basic validation)
+        if (!name || !email || !message) {
+            showNotification('Please fill in all fields', 'error');
+            return;
+        }
 
-    // Here you would typically send the form data to a server
-    console.log('Form submitted:', { name, email, message });
-});
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showNotification('Please enter a valid email', 'error');
+            return;
+        }
+
+        // Show success message
+        
+        
+        const formData = new FormData();
+    
+        // Append the access key and your custom variables
+        formData.append("access_key", "5b0e07a8-ad11-49f1-944d-abac308a401e");
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("message", message);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                alert("Success! Your data has been sent.");
+            } else {
+                alert("Error: " + data.message);
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong. Please try again.");
+        }
+        // Reset form
+        this.reset();
+        nameInput.focus();
+
+        // Here you would typically send the form data to a server
+        console.log('Form submitted:', { name, email, message });
+    });
+}
 
 // ===== Notification System =====
 function showNotification(message, type = 'info') {
@@ -193,17 +240,6 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.feature-card, .service-item').forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
-});
-
-// ===== Parallax Effect on Scroll =====
-const parallaxElements = document.querySelectorAll('.floating-shape');
-
-window.addEventListener('scroll', () => {
-    parallaxElements.forEach((element, index) => {
-        const scrollPosition = window.scrollY;
-        const movement = scrollPosition * (0.5 + index * 0.1);
-        element.style.transform = `translateY(${movement}px)`;
-    });
 });
 
 // ===== Enhanced Interactivity =====

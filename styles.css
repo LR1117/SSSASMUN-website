@@ -279,6 +279,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 /* Interactive Hero Blobs
@@ -325,6 +326,7 @@ main {
     width: 100%;
     position: relative;
     z-index: 10;
+    
 }
 
 .hero-content {
@@ -342,6 +344,7 @@ main {
     flex-direction: column;
     gap: 0.1em;
     color: var(--primary-blue);
+    word-spacing: -75px;
 }
 
 .hero-word {
